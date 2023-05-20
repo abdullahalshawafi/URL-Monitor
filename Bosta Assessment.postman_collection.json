@@ -1,0 +1,354 @@
+{
+	"info": {
+		"_postman_id": "9ed9444a-8fa2-4975-a379-fe01995ef505",
+		"name": "Bosta Assessment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13022641"
+	},
+	"item": [
+		{
+			"name": "Urls",
+			"item": [
+				{
+					"name": "Create URL",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Local Test\",\r\n    \"slug\": \"local-test\",\r\n    \"url\": \"http://localhost:8000\",\r\n    \"protocol\": \"HTTP\",\r\n    \"path\": null,\r\n    \"port\": null,\r\n    \"webhook\": null,\r\n    \"timeout\": 2,\r\n    \"interval\": 1,\r\n    \"threshold\": 1,\r\n    \"authentication\": null,\r\n    \"httpHeaders\": null,\r\n    \"assert\": {\r\n        \"statusCode\": 200\r\n    },\r\n    \"tags\": [\r\n        \"test\",\r\n        \"local\"\r\n    ],\r\n    \"ignoreSSL\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/urls/create",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"urls",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All URLs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/urls",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"urls"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get URL by Slug",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/urls/:slugOrId",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"urls",
+								":slugOrId"
+							],
+							"variable": [
+								{
+									"key": "slugOrId",
+									"value": "4fcaaf55-2d4b-49fa-aaac-436f52adeb83"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update URL",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Local Test\",\r\n    \"slug\": \"local-test\",\r\n    \"url\": \"http://localhost:8000\",\r\n    \"protocol\": \"HTTP\",\r\n    \"path\": null,\r\n    \"port\": null,\r\n    \"webhook\": null,\r\n    \"timeout\": 2,\r\n    \"interval\": 0.5,\r\n    \"threshold\": 1,\r\n    \"authentication\": null,\r\n    \"httpHeaders\": null,\r\n    \"assert\": {\r\n        \"statusCode\": 200\r\n    },\r\n    \"tags\": [\r\n        \"test\",\r\n        \"local\"\r\n    ],\r\n    \"ignoreSSL\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/urls/update/:slugOrId",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"urls",
+								"update",
+								":slugOrId"
+							],
+							"variable": [
+								{
+									"key": "slugOrId",
+									"value": "4fcaaf55-2d4b-49fa-aaac-436f52adeb83"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete URL",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/urls/delete/:slugOrId",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"urls",
+								"delete",
+								":slugOrId"
+							],
+							"variable": [
+								{
+									"key": "slugOrId",
+									"value": "4fcaaf55-2d4b-49fa-aaac-436f52adeb83"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiZHVsbGFoYWRlbC5hYW1AZ21haWwuY29tIiwiaWQiOiJhOGIwOWI2ZS1lYmJlLTQ2NTYtYjgyZi1jMmFkZWY3YzFkZjMiLCJpYXQiOjE2ODQ1OTYxMzgsImV4cCI6MTY4NDY4MjUzOH0.s83kcYRzklLTyJFCkk5EfnvF3JiR7Sorl7z9xrBUH2o",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Reports",
+			"item": [
+				{
+					"name": "Get URL Report",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/reports/:urlId",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"reports",
+								":urlId"
+							],
+							"variable": [
+								{
+									"key": "urlId",
+									"value": "4fcaaf55-2d4b-49fa-aaac-436f52adeb83"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get URLs Reports By Tag",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/reports/tags/:tag",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"reports",
+								"tags",
+								":tag"
+							],
+							"variable": [
+								{
+									"key": "tag",
+									"value": "Tests"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiZHVsbGFoYWRlbC5hYW1AZ21haWwuY29tIiwiaWQiOiJhOGIwOWI2ZS1lYmJlLTQ2NTYtYjgyZi1jMmFkZWY3YzFkZjMiLCJpYXQiOjE2ODQ1OTYxMzgsImV4cCI6MTY4NDY4MjUzOH0.s83kcYRzklLTyJFCkk5EfnvF3JiR7Sorl7z9xrBUH2o",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Abdullah Adel\",\r\n    \"email\": \"abdullahadel.aam@gmail.com\",\r\n    \"password\": \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/auth/register",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"abdullahadel.aam@gmail.com\",\r\n    \"password\": \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/auth/login",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Hello",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:3000/api",
+			"type": "string"
+		}
+	]
+}
