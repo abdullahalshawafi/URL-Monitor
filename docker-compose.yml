@@ -1,0 +1,32 @@
+version: "3.7"
+services:
+  db:
+    image: postgres:13.9-alpine
+    restart: always
+    env_file: .env
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USERNAME}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    volumes:
+      - db:/var/lib/postgresql/data
+  
+  api:
+    container_name: api
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file: .env
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    external_links:
+      - db
+    depends_on:
+      - db
+volumes:
+  db:

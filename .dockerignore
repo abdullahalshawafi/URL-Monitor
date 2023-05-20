@@ -1,0 +1,9 @@
+.vscode
+/node_modules
+/dist
+
+.eslintrc
+.prettierrc
+
+Dockerfile*
+docker-compose.yml
