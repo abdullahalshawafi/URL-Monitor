@@ -1,6 +1,6 @@
-# Backend Assessment
+# NestJS URL Monitor
 
-Build an uptime monitoring RESTful API server that allows authenticated users to monitor URLs, and get detailed uptime reports about their availability, average response time, and total uptime/downtime.
+An uptime monitoring RESTful API server that allows authenticated users to monitor URLs, and get detailed uptime reports about their availability, average response time, and total uptime/downtime.
 
 ## How to run
 
@@ -18,19 +18,19 @@ Build an uptime monitoring RESTful API server that allows authenticated users to
 
 ## API Documentation
 
-API documentation is available in `Bosta Assessment.postman_collection.json` file. You can import it to [Postman](https://www.postman.com/) to test the APIs.
+API documentation is available in the `URL Monitor API.postman_collection.json` file. You can import it to [Postman](https://www.postman.com/) to test the APIs.
 
 ## Overview
 
 - Signup with email verification.
-- CRUD operations for URL checks (`GET`, `PUT` and `DELETE` can be called only by the user user who created the check).
+- CRUD operations for URL checks (`GET`, `PUT`, and `DELETE` can be called only by the user who created the check).
 - Authenticated users can receive a notification whenever one of their URLs goes down or up again:
   - Email.
   - Webhook *(optional)*.
 - Authenticated users can get detailed uptime reports about their URLs availability, average response time, and total uptime/downtime.
 - Authenticated users can group their checks by tags and get reports by tag.
 
-## Acceptance Criteria
+## Features
 
 - APIs should be consuming and producing `application/json`.
 - Authentication should be stateless.
@@ -60,17 +60,3 @@ API documentation is available in `Bosta Assessment.postman_collection.json` fil
   - `uptime`: The total time, in seconds, of the URL uptime.
   - `responseTime`: The average response time for the URL.
   - `history`: Timestamped logs of the polling requests.
-
-## Evaluation Criteria
-
-- Code quality.
-- Code scalability as we should be able to add a new alerting notification channel like Slack, Firebase, SMS, etc.. with the minimum possible changes.
-- Unit tests.
-
-## Bonus
-
-- API documentation.
-- Docker and Docker Compose.
-- [Pushover](https://pushover.net/) integration to receive alerts on mobile devices.
-
-Try your best to implement as much as you can from the given requirements and feel free to add more if you want to.
